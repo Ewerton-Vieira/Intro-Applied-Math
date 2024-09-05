@@ -1,2 +1,2 @@
-# Intro-Applied-Math
-Introduction to Applied Math
+# Welcome to Introduction to Applied Mathematics
+
