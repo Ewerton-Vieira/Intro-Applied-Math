@@ -1,8 +1,6 @@
 # Welcome to Introduction to Applied Mathematics
 
-## Textbook
-
-# Data_Driven_Science
+## Textbook: Data_Driven_Science
 
 <img src="http://www.databookuw.com/files/stacks-image-5bffc53-882x1200.png" alt="Data Driven Book Cover" width="200"/>
 
