@@ -13,4 +13,4 @@ http://databookuw.com/
 
 The majority of IPython notebooks are based on codes at https://github.com/dynamicslab/ and https://github.com/dylewsky/Data_Driven_Science_Python_Demos
 
-Please cite this book when using this code/data.
+Please cite this book when using this code/data..
