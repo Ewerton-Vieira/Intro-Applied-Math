@@ -14,7 +14,7 @@ frobenius_norm = norm(A, 'fro');
 
 fprintf('Frobenius norm: %f\n', frobenius_norm);
 
-
+% Extra
 % Exercise 1-2.
 % 
 % Load the image dog.jpg and compute the economy SVD. Compute the relative 
