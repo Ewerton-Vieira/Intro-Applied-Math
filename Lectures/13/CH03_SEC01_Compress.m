@@ -7,11 +7,11 @@ clear all, close all, clc
 figure
 A=imread('jelly', 'jpeg'); % Load image
 Abw=rgb2gray(A);           % Convert image to grayscale
-imshow(Abw).               % Plot image
+imshow(Abw)              % Plot image
 
 axis off
 set(gcf,'PaperPositionMode','auto')
-print('-depsc2', '-loose', '../figures/f_chCS_ex01a');
+% print('-depsc2', '-loose', '../figures/f_chCS_ex01a');
 
 %% Compute the FFT of our image using fft2
 At=fft2(Abw);
@@ -20,7 +20,7 @@ imshow(mat2gray(F),[]);
 
 axis off
 set(gcf,'PaperPositionMode','auto')
-print('-depsc2', '-loose', '../figures/f_chCS_ex01b');
+% print('-depsc2', '-loose', '../figures/f_chCS_ex01b');
 
 %% Zero out all small coefficients and inverse transform
 Bt = sort(abs(At(:)));
@@ -29,19 +29,23 @@ thresh = Bt(floor((1-keep)*length(Bt)));
 ind = abs(At)>thresh;
 Atlow = At.*ind;
 Flow = log(abs(fftshift(Atlow))+1);  % put FFT on log-scale
+
+figure
 imshow(mat2gray(Flow),[]);
 
 axis off
 set(gcf,'PaperPositionMode','auto')
-print('-depsc2', '-loose', '../figures/f_chCS_ex01c');
+% print('-depsc2', '-loose', '../figures/f_chCS_ex01c');
 
 %% Plot Reconstruction
 Alow=uint8(ifft2(Atlow));
+
+figure
 imshow(Alow)
 
 axis off
 set(gcf,'PaperPositionMode','auto')
-print('-depsc2', '-loose', '../figures/f_chCS_ex01d');
+% print('-depsc2', '-loose', '../figures/f_chCS_ex01d');
 
 %%
 figure
@@ -62,4 +66,4 @@ axis off
 
 set(gcf,'Position',[10 10 1200 700])
 set(gcf,'PaperPositionMode','auto')
-print('-depsc2', '-loose', '../figures/f_chCS_ex01e');
+% print('-depsc2', '-loose', '../figures/f_chCS_ex01e');

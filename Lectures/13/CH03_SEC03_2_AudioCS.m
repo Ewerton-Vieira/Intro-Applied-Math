@@ -2,6 +2,8 @@
 % Copyright Brunton, Kutz, Proctor, 2016, All Rights Reserved
 % Code by Steven L. Brunton (sbrunton@uw.edu)
 
+% Search in add-ons for "CoSaMP and OMP for sparse recovery" and install
+
 clear all, close all, clc;
 %% Generate signal, DCT of signal
 n = 4096;    % points in high resolution signal
@@ -19,7 +21,10 @@ y = x(perm); % compressed measurement
 Psi = dct(eye(n, n));  % build Psi
 Theta = Psi(perm, :);  % Measure rows of Psi
 
-s = cosamp(Theta,y',10,1.e-10,10); % CS via matching pursuit
+s = CoSaMP(Theta,y',10); % CS via matching pursuit
+
+% s = cosamp(Theta,y',10,1.e-10,10); % CS via matching pursuit
+
 xrecon = idct(s);      % reconstruct full signal
 
 %% Plot
@@ -63,7 +68,7 @@ cvx_begin;
 cvx_end;
 
 
-% 
+
 % %% De-bias
 % ind = find(abs(s)>10)          % find active Fourier modes
 % xvals = Theta(:,ind)\y';  % regress onto sparse coefficients
