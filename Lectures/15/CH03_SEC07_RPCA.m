@@ -2,13 +2,12 @@ clear all, close all, clc
 
 load ../DATA/allFaces.mat
 X = faces(:,1:nfaces(1));
-[L,S] = RPCA(X);
+[L,S] = RPCA(X);  % it takes 2-3 minutes to run this line
 
 
 %%
 close all
 inds = [3 4 14 15 17 18 19 20 21 32 43];
-inds = [3 4];
 for k=inds
     k
     figure
