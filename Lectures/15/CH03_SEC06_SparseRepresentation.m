@@ -33,6 +33,7 @@ imagesc(reshape(b4,n,m)), colormap gray
 
 B = [b1 b2 b3 b4];
 for k=1:4
+    figure
     axes('position',[0  0  1  1])
     imagesc(reshape(B(:,k),n,m)), colormap gray
     axis off
@@ -67,6 +68,7 @@ for k=1:M
 end
 
 for k=1:4
+    figure
     axes('position',[0  0  1  1])
     imagesc(reshape(Bsmall(:,k),12,10)), colormap gray
     axis off
@@ -99,6 +101,7 @@ set(gcf,'Position',[100 100 168*2 192*2])
 set(gcf,'PaperPositionMode','auto')
 % print('-dpng','-r0','-loose', ['../figures/f_chCS_EX06SRC_b1L']);
 
+figure
 imagesc(reshape(b1-(Training*(a1./scalingFactor')),n,m)), colormap gray
 caxis([0 255])
 axis off
@@ -146,17 +149,20 @@ set(gcf,'Position',[100 100 168*2 192*2])
 set(gcf,'PaperPositionMode','auto')
 % print('-dpng','-r0','-loose', ['../figures/f_chCS_EX06SRC_b2L']);
 
+figure
 imagesc(reshape(b2-(Training*(a2./scalingFactor')),n,m)), colormap gray
 axis off
 set(gcf,'Position',[100 100 168*2 192*2])
 set(gcf,'PaperPositionMode','auto')
 % print('-dpng','-r0','-loose', ['../figures/f_chCS_EX06SRC_b2S']);
 
+
 binnedError = zeros(20,1);
 for k=1:20
     L = (k-1)*30+1:k*30;
     binnedError(k) = norm(b2-(Training(:,L)*(a2(L)./scalingFactor(L)')))/norm(b2)
 end
+figure
 bar(binnedError,'FaceColor',[.7 .7 .7])
 hold on
 bar(7,binnedError(7),'FaceColor',[.7 0 0])
@@ -190,6 +196,7 @@ set(gcf,'Position',[100 100 168*2 192*2])
 set(gcf,'PaperPositionMode','auto')
 % print('-dpng','-r0','-loose', ['../figures/f_chCS_EX06SRC_b3L']);
 
+figure
 imagesc(reshape(b3-(Training*(a3./scalingFactor')),n,m)), colormap gray
 caxis([0 255])
 axis off
@@ -202,6 +209,8 @@ for k=1:20
     L = (k-1)*30+1:k*30;
     binnedError(k) = norm(b3-(Training(:,L)*(a3(L)./scalingFactor(L)')))/norm(b3)
 end
+
+figure
 bar(binnedError,'FaceColor',[.7 .7 .7])
 hold on
 bar(7,binnedError(7),'FaceColor',[.7 0 0])
@@ -235,6 +244,7 @@ set(gcf,'Position',[100 100 168*2 192*2])
 set(gcf,'PaperPositionMode','auto')
 % print('-dpng','-r0','-loose', ['../figures/f_chCS_EX06SRC_b4L']);
 
+figure
 imagesc(reshape(b4-(Training*(a4./scalingFactor')),n,m)), colormap gray
 caxis([0 255])
 axis off
@@ -247,6 +257,8 @@ for k=1:20
     L = (k-1)*30+1:k*30;
     binnedError(k) = norm(b4-(Training(:,L)*(a4(L)./scalingFactor(L)')))/norm(b4)
 end
+
+figure
 bar(binnedError,'FaceColor',[.7 .7 .7])
 hold on
 bar(7,binnedError(7),'FaceColor',[.7 0 0])
@@ -274,6 +286,7 @@ set(gcf,'Position',[100 100 168*2 192*2])
 set(gcf,'PaperPositionMode','auto')
 % print('-dpng','-r0','-loose', ['../figures/f_chCS_EX06SRC_b4L_L2']);
 
+figure
 imagesc(reshape(b4-(Training*a4),n,m)), colormap gray
 % caxis([0 255])
 axis off
@@ -288,6 +301,8 @@ for k=1:20
     L = (k-1)*30+1:k*30;
     binnedError(k) = norm(b4-(Training(:,L)*(a4L2(L))))/norm(b4)
 end
+
+figure
 bar(binnedError,'FaceColor',[.7 .7 .7])
 xlim([0 21])
 set(gcf,'Position',[100 100 300 200])
@@ -303,14 +318,15 @@ set(gcf,'Position',[100 100 1200 240])
 set(gcf,'PaperPositionMode','auto')
 % print('-dpng','-r0','-loose', ['../figures/f_chCS_EX06SRC_LIBRARYSMALL']);
 
+figure
 imagesc((b1s)), colormap gray, axis off
 caxis([0 255])
 set(gcf,'Position',[100 100 50 900])
 set(gcf,'PaperPositionMode','auto')
 % print('-dpng','-r0','-loose', ['../figures/f_chCS_EX06SRC_TESTIMAGE']);
-
 axes('position',[0  0  1  1])
 
+figure
 imagesc((450-a1')), colormap gray, axis off
 caxis([0 550])
 set(gcf,'Position',[1 1 1440 50])
