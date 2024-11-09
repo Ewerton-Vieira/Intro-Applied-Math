@@ -1,5 +1,5 @@
 clear all, close all, clc
-load CYLINDER_ALL.mat
+load ../DATA/CYLINDER_ALL.mat
 X = VORTALL;
 
 %% augment matrix with mirror images to enforce symmetry/anti-symmetry
